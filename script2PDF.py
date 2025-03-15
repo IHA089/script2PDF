@@ -17,13 +17,13 @@ def inject_js_into_pdf(pdf_file, js_file, output_file):
         with open(output_file, "wb") as output_pdf:
             writer.write(output_pdf)
 
-        print(f"[*] JavaScript successfully injected into: {output_file}")
+        print(f"[script2PDF] JavaScript successfully injected into: {output_file}")
     except Exception as e:
-        print(f"[!] Error occurred: {e}")
+        print(f"[script2PDF!] Error occurred: {e}")
 
 def check_file_present(file_path):
     if not os.path.isfile(file_path):
-        print(f"Error: File '{file_path}' does not exist.")
+        print(f"[script2PDF!] Error: File '{file_path}' does not exist.")
         return False
     return True
 
@@ -42,13 +42,13 @@ def main():
     if not check_file_present(js_file):
         return
 
-    output_file = f"js_injected_{pdf_file.split('/')[-1]}"
+    output_file = f"malicious_{pdf_file.split('/')[-1]}"
 
-    print(f"[*] Injecting JavaScript into PDF...")
-    print(f"[*] PDF File: {pdf_file}")
-    print(f"[*] JavaScript File: {js_file}")
-    print(f"[*] Output File: {output_file}")
-    sys.exit()
+    print(f"[script2PDF] Injecting JavaScript into PDF...")
+    print(f"[script2PDF] PDF File: {pdf_file}")
+    print(f"[script2PDF] JavaScript File: {js_file}")
+    print(f"[script2PDF] Output File: {output_file}")
+    
     inject_js_into_pdf(pdf_file, js_file, output_file)
 
 if __name__ == "__main__":
